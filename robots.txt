@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /younky-admin.html
+
+Sitemap: https://younky.com/sitemap.xml

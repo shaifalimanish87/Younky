@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary SEO -->
+<title>Younky Eyewear | Trendy Eyeglasses & Frames Online — younky.com</title>
+<meta name="description" content="Shop trendy, affordable eyeglasses at Younky. Handpicked frames for men, women & kids with free shipping, easy 7-day exchange, and secure UPI/Razorpay payments.">
+<meta name="keywords" content="eyeglasses online, buy spectacles, trendy eyeglass frames, Younky eyewear, affordable glasses India, men eyeglasses, women eyeglasses, kids glasses">
+<meta name="author" content="Younky Eyewear">
+<link rel="canonical" href="https://younky.com/">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Younky Eyewear">
+<meta property="og:title" content="Younky Eyewear | Trendy Eyeglasses & Frames Online">
+<meta property="og:description" content="Handpicked eyeglasses for men, women & kids. Free shipping, easy exchange, secure payments — shop the Younky collection today.">
+<meta property="og:url" content="https://younky.com/">
+<meta property="og:image" content="https://younky.com/og-image.jpg">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Younky Eyewear | Trendy Eyeglasses Online">
+<meta name="twitter:description" content="Handpicked eyeglasses for men, women & kids. Free shipping, easy exchange, secure payments.">
+<meta name="twitter:image" content="https://younky.com/og-image.jpg">
+
+<!-- Favicon (glasses mark, inline SVG) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%2314171F'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%23FF5A36' stroke-width='6'/%3E%3Ccircle cx='70' cy='30' r='18' fill='none' stroke='%23FF5A36' stroke-width='6'/%3E%3Cpath d='M48 28c2-4 6-4 8 0' fill='none' stroke='%23FF5A36' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured data: Organization + Store -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "Younky Eyewear",
+  "url": "https://younky.com/",
+  "description": "Trendy, affordable eyeglasses for men, women and kids.",
+  "logo": "https://younky.com/og-image.jpg",
+  "sameAs": []
+}
+</script>
+<style>
+  :root{
+    --ink:#14171F;
+    --ink-soft:#2A2E3A;
+    --paper:#FAF8F4;
+    --coral:#FF5A36;
+    --coral-dark:#E64A28;
+    --teal:#1C7C74;
+    --line:#E4E0D8;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  #shop{scroll-margin-top:76px;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand,.btn,.tab{font-family:'Sora',sans-serif;}
+
+  a{color:inherit;text-decoration:none;}
+
+  /* ===== Announcement bar ===== */
+  .announce{
+    background:var(--coral);color:#fff;overflow:hidden;white-space:nowrap;
+    font-size:12.5px;font-weight:700;letter-spacing:.2px;
+  }
+  .announce-track{
+    display:inline-flex;padding:9px 0;animation:marquee 22s linear infinite;
+  }
+  .announce-track span{padding:0 28px;position:relative;}
+  .announce-track span::after{
+    content:"✦";position:absolute;right:-3px;top:0;opacity:0.7;font-size:10px;
+  }
+  @keyframes marquee{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--ink);
+    color:var(--paper);
+    border-bottom:3px solid var(--coral);
+  }
+  .header-inner{
+    max-width:1200px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{
+    font-size:24px;font-weight:800;letter-spacing:0.5px;
+    display:flex;align-items:center;gap:9px;
+  }
+  .brand span{color:var(--coral);}
+  .brand-mark{width:34px;height:34px;flex-shrink:0;}
+  .header-actions{display:flex;align-items:center;gap:10px;}
+  .cart-toggle{
+    position:relative;background:transparent;border:1.5px solid rgba(250,248,244,0.35);
+    color:var(--paper);padding:9px 16px;border-radius:999px;
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;
+    transition:border-color .15s,background .15s;
+  }
+  .cart-toggle:hover{border-color:var(--coral);background:rgba(255,90,54,0.12);}
+  .cart-badge{
+    position:absolute;top:-7px;right:-7px;background:var(--coral);color:#fff;
+    font-size:10.5px;font-weight:800;min-width:18px;height:18px;border-radius:999px;
+    display:flex;align-items:center;justify-content:center;padding:0 4px;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(circle at 85% -10%, rgba(255,90,54,0.16) 0%, transparent 55%),
+      radial-gradient(circle at -5% 110%, rgba(28,124,116,0.14) 0%, transparent 50%),
+      var(--ink);
+    color:var(--paper);
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;padding:64px 24px 44px;position:relative;z-index:1;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:7px;background:rgba(255,90,54,0.15);
+    color:#FFA98F;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;
+    letter-spacing:.3px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:46px;line-height:1.08;margin:0 0 16px;font-weight:800;color:#fff;
+  }
+  .hero h1 em{font-style:normal;color:var(--coral);}
+  .hero p{font-size:16px;line-height:1.6;color:rgba(250,248,244,0.72);max-width:46ch;margin:0 0 26px;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .hero-cta .btn.ghost{color:#fff;border-color:rgba(250,248,244,0.4);}
+  .hero-cta .btn.ghost:hover{background:#fff;color:var(--ink);}
+  .hero-visual{
+    justify-self:end;width:100%;max-width:300px;position:relative;display:none;
+  }
+  .hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.35));}
+  @media(min-width:760px){.hero-visual{display:block;}}
+  @media(max-width:759px){
+    .hero-inner{grid-template-columns:1fr;padding-top:44px;text-align:left;}
+    .hero h1{font-size:32px;}
+  }
+
+  /* ===== Trust badges ===== */
+  .trust{
+    max-width:1200px;margin:0 auto;padding:22px 24px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;
+  }
+  .trust-item{
+    display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;
+  }
+  .trust-item .ic{
+    width:36px;height:36px;border-radius:9px;background:#F1EEE7;display:flex;align-items:center;
+    justify-content:center;flex-shrink:0;font-size:17px;
+  }
+  .trust-item .tx b{display:block;font-size:13px;font-weight:700;}
+  .trust-item .tx span{display:block;font-size:11.5px;color:var(--ink-soft);}
+
+  /* ===== Category tabs ===== */
+  .tabs{
+    max-width:1200px;margin:0 auto;padding:0 24px;
+    display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px;
+  }
+  .tab{
+    padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);
+    background:var(--card);font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);
+    transition:all .15s;
+  }
+  .tab:hover{border-color:var(--ink);transform:translateY(-1px);}
+  .tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  /* ===== Toolbar ===== */
+  .toolbar{
+    max-width:1200px;margin:0 auto;padding:20px 24px 8px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .count{font-size:14px;color:var(--ink-soft);}
+  select{
+    padding:9px 14px;border-radius:8px;border:1.5px solid var(--line);
+    background:var(--card);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);
+  }
+
+  /* ===== Grid ===== */
+  .grid{
+    max-width:1200px;margin:0 auto;padding:16px 24px 80px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    display:flex;flex-direction:column;position:relative;transition:transform .2s, box-shadow .2s;
+    animation:fadeUp .5s ease both;
+  }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(20,23,31,0.12);}
+  .card .thumb{
+    aspect-ratio:4/3;background:#F1EEE7;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    position:relative;
+  }
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+  .card:hover .thumb img{transform:scale(1.06);}
+  .card .thumb .ph{color:#B9B3A5;font-size:12px;font-weight:600;}
+  .card .new-badge{
+    position:absolute;top:10px;left:10px;background:var(--coral);color:#fff;font-size:10.5px;
+    font-weight:800;letter-spacing:.3px;padding:4px 9px;border-radius:999px;z-index:2;
+  }
+  .gallery-strip{display:flex;gap:6px;padding:8px 12px 0;overflow-x:auto;}
+  .gallery-strip .g-thumb{
+    width:38px;height:38px;object-fit:cover;border-radius:6px;flex-shrink:0;cursor:pointer;
+    border:2px solid transparent;opacity:0.7;transition:border-color .15s,opacity .15s;
+  }
+  .gallery-strip .g-thumb:hover{opacity:1;}
+  .gallery-strip .g-thumb.active{border-color:var(--coral);opacity:1;}
+  .card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card .cat{font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--teal);}
+  .card .name{font-size:15px;font-weight:700;margin:0;}
+  .card .desc{font-size:12.5px;color:var(--ink-soft);line-height:1.4;margin:0;}
+  .card .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:8px;}
+  .card .price{font-size:16px;font-weight:800;}
+  .card .add-cart{
+    background:var(--ink);color:var(--paper);border:none;padding:9px 0;border-radius:8px;
+    font-size:13px;font-weight:700;cursor:pointer;width:100%;margin-top:10px;transition:background .15s;
+  }
+  .card .add-cart:hover{background:var(--coral-dark);}
+  .card .add-cart.added{background:var(--teal);}
+
+  .empty{
+    max-width:1200px;margin:0 auto;padding:70px 24px;text-align:center;color:var(--ink-soft);
+  }
+  .empty h3{font-size:20px;margin:0 0 8px;color:var(--ink);}
+  .empty p{margin:0 0 20px;font-size:14px;}
+
+  .btn{
+    background:var(--coral);color:#fff;border:none;padding:12px 22px;border-radius:999px;
+    font-size:14px;font-weight:700;cursor:pointer;transition:background .15s;
+  }
+  .btn:hover{background:var(--coral-dark);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+  /* ===== Modal ===== */
+  .overlay{
+    position:fixed;inset:0;background:rgba(20,23,31,0.55);z-index:60;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal{
+    background:var(--paper);border-radius:16px;max-width:460px;width:100%;
+    max-height:88vh;overflow-y:auto;padding:28px;
+  }
+  .modal h2{margin:0 0 4px;font-size:20px;}
+  .modal .sub{font-size:13px;color:var(--ink-soft);margin:0 0 20px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12.5px;font-weight:700;margin-bottom:6px;}
+  .field input[type=text], .field input[type=number], .field select, .field textarea{
+    width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);
+    font-family:'Inter',sans-serif;font-size:14px;background:#fff;color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:60px;}
+  .modal-actions{display:flex;gap:10px;margin-top:8px;}
+  .modal-actions .btn{flex:1;}
+  .err{color:var(--coral-dark);font-size:12.5px;margin:-6px 0 12px;}
+
+  footer{
+    border-top:1px solid var(--line);padding:36px 24px 30px;text-align:center;
+    font-size:12.5px;color:var(--ink-soft);background:var(--card);
+  }
+  .footer-brand{
+    font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .footer-brand span{color:var(--coral);}
+  .footer-brand svg{width:28px;height:28px;}
+  footer p{margin:4px 0;}
+  .footer-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:14px 0;}
+  .footer-nav a{font-size:12.5px;font-weight:600;color:var(--ink-soft);}
+  .footer-nav a:hover{color:var(--coral-dark);}
+  .footer-copy{color:#B9B3A5;font-size:11.5px;margin-top:12px;}
+
+  .section-heading{
+    max-width:1200px;margin:0 auto;padding:26px 24px 4px;font-size:22px;font-weight:800;
+  }
+  .about-block{
+    max-width:800px;margin:0 auto;padding:10px 24px 60px;
+  }
+  .about-block h2{font-size:19px;margin:0 0 10px;}
+  .about-block p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 12px;}
+  .about-block a{color:var(--teal);font-weight:700;text-decoration:underline;}
+
+  /* ===== Cart drawer ===== */
+  .drawer-overlay{
+    position:fixed;inset:0;background:rgba(20,23,31,0.55);z-index:70;display:none;
+  }
+  .drawer{
+    position:fixed;top:0;right:0;bottom:0;width:100%;max-width:400px;background:var(--paper);
+    z-index:71;transform:translateX(100%);transition:transform .22s ease;
+    display:flex;flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-overlay.show{display:block;}
+  .drawer-head{
+    padding:20px 22px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .drawer-head h2{margin:0;font-size:18px;}
+  .drawer-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--ink);}
+  .drawer-items{flex:1;overflow-y:auto;padding:16px 22px;}
+  .cart-line{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .cart-line img{width:56px;height:56px;object-fit:cover;border-radius:8px;background:#F1EEE7;flex-shrink:0;}
+  .cart-line .ci-body{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .cart-line .ci-name{font-size:13.5px;font-weight:700;}
+  .cart-line .ci-price{font-size:12.5px;color:var(--ink-soft);}
+  .qty-row{display:flex;align-items:center;gap:8px;margin-top:2px;}
+  .qty-row button{
+    width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line);background:#fff;
+    cursor:pointer;font-weight:700;font-size:13px;line-height:1;
+  }
+  .qty-row span{font-size:13px;font-weight:600;min-width:16px;text-align:center;}
+  .cart-line .ci-remove{background:none;border:none;color:#B9B3A5;font-size:11.5px;cursor:pointer;align-self:flex-start;}
+  .cart-line .ci-remove:hover{color:var(--coral-dark);}
+  .drawer-empty{padding:60px 10px;text-align:center;color:var(--ink-soft);font-size:13.5px;}
+  .drawer-foot{padding:18px 22px 22px;border-top:1px solid var(--line);}
+  .drawer-total{display:flex;justify-content:space-between;font-size:15px;font-weight:800;margin-bottom:14px;}
+  .drawer-foot .btn{width:100%;}
+
+  /* ===== Checkout modal ===== */
+  .checkout-summary{
+    background:#F1EEE7;border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink-soft);
+    margin-bottom:16px;line-height:1.6;
+  }
+  .wa-note{font-size:11.5px;color:var(--ink-soft);margin-top:10px;line-height:1.5;}
+  .pay-section{
+    background:#F1EEE7;border-radius:10px;padding:14px;margin:2px 0 14px;
+  }
+  .pay-label{font-size:12.5px;font-weight:700;margin:0 0 10px;}
+  .pay-options{display:flex;gap:10px;}
+  .pay-btn{padding:10px 0;font-size:13px;}
+  .pay-note{font-size:11.5px;color:var(--ink-soft);margin:10px 0 0;}
+  @media(max-width:400px){ .pay-options{flex-direction:column;} }
+
+  .phone-row{display:flex;gap:8px;}
+  .phone-row input{flex:1;}
+  .phone-row .btn.small{width:auto;flex-shrink:0;padding:10px 16px;font-size:12.5px;white-space:nowrap;}
+  .verified-badge{color:var(--teal);font-size:13px;font-weight:700;margin:4px 0 0;display:none;}
+  #recaptcha-container{margin-top:6px;}
+  .gated{opacity:0.45;pointer-events:none;transition:opacity .2s;}
+  .gated.unlocked{opacity:1;pointer-events:auto;}
+  .gate-hint{font-size:12px;color:var(--ink-soft);margin:10px 0 0;font-style:italic;}
+  .btn[disabled]{background:#D8D3C8;cursor:not-allowed;}
+  .btn.ghost[disabled]{background:transparent;color:#B9B3A5;border-color:var(--line);cursor:not-allowed;}
+
+  @media(max-width:759px){
+    .hero{grid-template-columns:1fr;padding-top:36px;}
+    .hero h1{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="announce-track">
+    <span>FREE SHIPPING ON PREPAID ORDERS</span>
+    <span>EASY 7-DAY EXCHANGE</span>
+    <span>HANDPICKED FRAMES, EVERY WEEK</span>
+    <span>FREE SHIPPING ON PREPAID ORDERS</span>
+    <span>EASY 7-DAY EXCHANGE</span>
+    <span>HANDPICKED FRAMES, EVERY WEEK</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="19" fill="none" stroke="#FF5A36" stroke-width="6"/>
+        <circle cx="70" cy="30" r="19" fill="none" stroke="#FF5A36" stroke-width="6"/>
+        <path d="M47 27c2.5-4.5 6.5-4.5 9 0" fill="none" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/>
+        <path d="M8 24c-4-2.5-8-1-9.5 3" fill="none" stroke="#FF5A36" stroke-width="5" stroke-linecap="round"/>
+        <path d="M92 24c4-2.5 8-1 9.5 3" fill="none" stroke="#FF5A36" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      YOUNKY
+    </div>
+    <div class="header-actions">
+      <button class="cart-toggle" id="cartToggle">Cart<span class="cart-badge" id="cartBadge" style="display:none;">0</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">✦ New drops every week</span>
+      <h1>Frames with a bit of <em>attitude.</em></h1>
+      <p>Younky eyeglasses — built for people who don't want to choose between clear vision and looking sharp. Browse the collection below and add your favourites to the cart.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn">Shop the collection</a>
+        <a href="#shop" class="btn ghost">See what's new</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 300 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="58" stroke="#FF5A36" stroke-width="6"/>
+        <circle cx="220" cy="80" r="58" stroke="#FF5A36" stroke-width="6"/>
+        <path d="M138 76C144 66 156 66 162 76" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/>
+        <path d="M22 74C14 70 6 72 2 80" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/>
+        <path d="M278 74C286 70 294 72 298 80" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="80" cy="80" r="58" fill="#FF5A36" fill-opacity="0.08"/>
+        <circle cx="220" cy="80" r="58" fill="#1C7C74" fill-opacity="0.12"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><span class="ic">🚚</span><div class="tx"><b>Free shipping</b><span>On prepaid orders</span></div></div>
+  <div class="trust-item"><span class="ic">↺</span><div class="tx"><b>Easy exchange</b><span>7-day window</span></div></div>
+  <div class="trust-item"><span class="ic">✓</span><div class="tx"><b>Quality checked</b><span>Every single frame</span></div></div>
+  <div class="trust-item"><span class="ic">🔒</span><div class="tx"><b>Secure payment</b><span>UPI &amp; Razorpay</span></div></div>
+</div>
+
+<h2 class="section-heading">Shop Eyeglasses Online</h2>
+<div class="tabs" id="tabs"></div>
+
+
+<div class="toolbar" id="shop">
+  <div class="count" id="count">Showing 0 products</div>
+  <select id="sort">
+    <option value="new">Newest first</option>
+    <option value="low">Price: low to high</option>
+    <option value="high">Price: high to low</option>
+  </select>
+</div>
+
+<div id="gridWrap"></div>
+
+<section class="about-block">
+  <h2>Why Shop Eyeglasses at Younky?</h2>
+  <p>Younky is an online eyewear store built for people who want good-looking, well-made eyeglasses without the showroom markup. Every frame in our eyeglasses collection — for men, women, and kids — is checked for fit and finish before it reaches you. Whether you're after a classic round frame, a bold cat-eye, or something in between, browse the collection above and find a pair that matches your style and budget.</p>
+  <p>Ordering is simple: pick your frames, pay securely via UPI or Razorpay, and track your order over WhatsApp. Have questions about sizing, delivery, or exchanges? Visit our <a href="contact.html">Contact page</a> — we're happy to help.</p>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="30" cy="30" r="19" fill="none" stroke="#FF5A36" stroke-width="6"/>
+      <circle cx="70" cy="30" r="19" fill="none" stroke="#FF5A36" stroke-width="6"/>
+      <path d="M47 27c2.5-4.5 6.5-4.5 9 0" fill="none" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    YOUNKY
+  </div>
+  <p>Frames for the young at heart.</p>
+  <div class="footer-nav">
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+  <p class="footer-copy">© <span id="year"></span> Younky Eyewear. All rights reserved.</p>
+</footer>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h2>Your cart</h2>
+    <button class="drawer-close" id="drawerClose">&times;</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none;">
+    <div class="drawer-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn" id="checkoutBtn">Checkout</button>
+  </div>
+</div>
+
+<!-- Checkout modal -->
+<div class="overlay" id="checkoutOverlay" style="display:none;">
+  <div class="modal">
+    <h2>Complete your order</h2>
+    <p class="sub">Pay using UPI or Razorpay, then send us your order details on WhatsApp.</p>
+    <div class="checkout-summary" id="checkoutSummary"></div>
+
+    <p class="pay-label">Step 1 — Your details</p>
+    <div id="checkoutErr" class="err" style="display:none;"></div>
+    <div class="field">
+      <label>Your name</label>
+      <input type="text" id="cName" placeholder="e.g. Rohan Mehta">
+    </div>
+    <div class="field">
+      <label>Delivery address</label>
+      <textarea id="cAddress" placeholder="House no, street, city, pincode"></textarea>
+    </div>
+    <div class="field">
+      <label>Mobile number</label>
+      <div class="phone-row">
+        <input type="text" id="cPhone" placeholder="10-digit mobile number" maxlength="10">
+        <button class="btn small" id="sendOtpBtn">Send OTP</button>
+      </div>
+    </div>
+
+    <div class="field" id="otpField" style="display:none;">
+      <label>Enter OTP</label>
+      <div class="phone-row">
+        <input type="text" id="cOtp" placeholder="6-digit code" maxlength="6">
+        <button class="btn small" id="verifyOtpBtn">Verify</button>
+      </div>
+      <p class="pay-note" id="otpHint"></p>
+    </div>
+    <p class="verified-badge" id="verifiedBadge" style="display:none;">✓ Mobile number verified</p>
+
+    <div id="recaptcha-container"></div>
+
+    <div id="gatedSection" class="gated">
+      <p class="pay-label" style="margin-top:20px;">Step 2 — Pay</p>
+      <div class="pay-section">
+        <div class="pay-options">
+          <button class="btn pay-btn" id="payUpiBtn" disabled>Pay via UPI</button>
+          <button class="btn ghost pay-btn" id="payRzpBtn" disabled>Pay via Razorpay</button>
+        </div>
+        <p class="pay-note" id="upiIdNote"></p>
+      </div>
+
+      <p class="pay-label" style="margin-top:20px;">Step 3 — Confirm order</p>
+      <div class="modal-actions">
+        <button class="btn ghost" id="checkoutCancel">Back</button>
+        <button class="btn" id="checkoutSend" disabled>Send order on WhatsApp</button>
+      </div>
+    </div>
+    <p class="gate-hint" id="gateHint">Payment aur order confirm karne se pehle mobile number verify karna zaroori hai.</p>
+    <p class="wa-note">Order WhatsApp par ek fixed number par jaayega. Ye number abhi placeholder hai — apna business WhatsApp number code me WHATSAPP_NUMBER variable me daal dena.</p>
+  </div>
+</div>
+
+<!-- Firebase Phone Auth SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+const CATS = ["All","Men","Women","Kids","Unisex"];
+// TODO: apna WhatsApp business number yahan daalo (country code ke saath, bina + ya spaces ke — e.g. "919876543210")
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+// TODO: apna UPI ID yahan daalo (e.g. "yourname@okhdfcbank")
+const UPI_ID = "your-upi-id@bank";
+const UPI_PAYEE_NAME = "Younky Eyewear";
+// TODO: apna Razorpay Payment Page/Link yahan daalo (Razorpay dashboard > Payment Links se banega)
+const RAZORPAY_LINK = "https://rzp.io/l/your-payment-link";
+
+// TODO: Firebase project banne ke baad ye config Firebase console > Project Settings > Your apps > SDK setup se copy karke yahan paste karna
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+let firebaseReady = false;
+try{
+  firebase.initializeApp(firebaseConfig);
+  firebaseReady = true;
+}catch(e){
+  console.warn('Firebase not configured yet — OTP will not work until firebaseConfig is filled in.');
+}
+let confirmationResult = null;
+let phoneVerified = false;
+let recaptchaVerifier = null;
+let cart = []; // {id, name, price, image, qty}
+let products = [];
+let activeCat = "All";
+let sortMode = "new";
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function renderTabs(){
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = "";
+  CATS.forEach(c=>{
+    const b = document.createElement('button');
+    b.className = 'tab' + (c===activeCat ? ' active' : '');
+    b.textContent = c;
+    b.onclick = ()=>{ activeCat = c; renderTabs(); renderGrid(); };
+    tabs.appendChild(b);
+  });
+}
+
+function visibleProducts(){
+  let list = activeCat==="All" ? products.slice() : products.filter(p=>p.category===activeCat);
+  if(sortMode==="low") list.sort((a,b)=>a.price-b.price);
+  else if(sortMode==="high") list.sort((a,b)=>b.price-a.price);
+  else list.sort((a,b)=>b.createdAt-a.createdAt);
+  return list;
+}
+
+function renderGrid(){
+  const wrap = document.getElementById('gridWrap');
+  const list = visibleProducts();
+  document.getElementById('count').textContent = `Showing ${list.length} product${list.length===1?'':'s'}`;
+
+  if(list.length===0){
+    wrap.innerHTML = `<div class="empty">
+      <h3>No frames here yet</h3>
+      <p>New arrivals are on the way — check back soon.</p>
+    </div>`;
+    return;
+  }
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+  list.forEach((p,idx)=>{
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = `${Math.min(idx*0.05, 0.4)}s`;
+    const allImages = [p.image, ...(p.gallery||[])].filter(Boolean);
+    const isNew = (Date.now() - p.createdAt) < (7*24*60*60*1000);
+    card.innerHTML = `
+      <div class="thumb" id="thumb-${p.id}">
+        ${isNew ? `<span class="new-badge">NEW</span>` : ""}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span class="ph">No image</span>`}
+      </div>
+      ${allImages.length>1 ? `<div class="gallery-strip">
+        ${allImages.map((img,i)=>`<img src="${img}" class="g-thumb${i===0?' active':''}" data-full="${img}">`).join('')}
+      </div>` : ""}
+      <div class="body">
+        <span class="cat">${p.category.toUpperCase()}</span>
+        <p class="name">${p.name}</p>
+        ${p.desc ? `<p class="desc">${p.desc}</p>` : ""}
+        <div class="row">
+          <span class="price">₹${Number(p.price).toLocaleString('en-IN')}</span>
+        </div>
+        <button class="add-cart" data-id="${p.id}">Add to cart</button>
+      </div>`;
+    grid.appendChild(card);
+  });
+  wrap.innerHTML = "";
+  wrap.appendChild(grid);
+
+  wrap.querySelectorAll('.g-thumb').forEach(thumb=>{
+    thumb.onclick = ()=>{
+      const card = thumb.closest('.card');
+      const mainImg = card.querySelector('.thumb img');
+      if(mainImg) mainImg.src = thumb.dataset.full;
+      card.querySelectorAll('.g-thumb').forEach(t=>t.classList.remove('active'));
+      thumb.classList.add('active');
+    };
+  });
+
+  wrap.querySelectorAll('.add-cart').forEach(btn=>{
+    btn.onclick = ()=>{
+      addToCart(btn.dataset.id);
+      btn.textContent = 'Added ✓';
+      btn.classList.add('added');
+      setTimeout(()=>{ btn.textContent='Add to cart'; btn.classList.remove('added'); }, 1200);
+    };
+  });
+}
+
+async function loadProducts(){
+  try{
+    const res = await window.storage.get('younky:products', true);
+    products = res ? JSON.parse(res.value) : [];
+  }catch(e){
+    products = [];
+  }
+  renderGrid();
+}
+
+document.getElementById('sort').onchange = (e)=>{ sortMode = e.target.value; renderGrid(); };
+
+function addToCart(productId){
+  const p = products.find(x=>x.id===productId);
+  if(!p) return;
+  const line = cart.find(x=>x.id===productId);
+  if(line) line.qty += 1;
+  else cart.push({ id:p.id, name:p.name, price:p.price, image:p.image, qty:1 });
+  persistCart();
+  renderCart();
+}
+
+function cartCount(){ return cart.reduce((s,l)=>s+l.qty,0); }
+function cartTotal(){ return cart.reduce((s,l)=>s+l.qty*l.price,0); }
+
+function renderCart(){
+  const badge = document.getElementById('cartBadge');
+  const count = cartCount();
+  badge.style.display = count>0 ? 'flex' : 'none';
+  badge.textContent = count;
+
+  const itemsBox = document.getElementById('drawerItems');
+  const foot = document.getElementById('drawerFoot');
+
+  if(cart.length===0){
+    itemsBox.innerHTML = `<div class="drawer-empty">Cart is empty. Add a few frames to get started.</div>`;
+    foot.style.display='none';
+    return;
+  }
+
+  foot.style.display='block';
+  document.getElementById('cartTotal').textContent = `₹${cartTotal().toLocaleString('en-IN')}`;
+
+  itemsBox.innerHTML = cart.map(l=>`
+    <div class="cart-line" data-id="${l.id}">
+      ${l.image ? `<img src="${l.image}">` : `<div style="width:56px;height:56px;border-radius:8px;background:#F1EEE7;flex-shrink:0;"></div>`}
+      <div class="ci-body">
+        <span class="ci-name">${l.name}</span>
+        <span class="ci-price">₹${l.price.toLocaleString('en-IN')} each</span>
+        <div class="qty-row">
+          <button class="qty-minus">−</button>
+          <span>${l.qty}</span>
+          <button class="qty-plus">+</button>
+        </div>
+      </div>
+      <button class="ci-remove">Remove</button>
+    </div>
+  `).join('');
+
+  itemsBox.querySelectorAll('.cart-line').forEach(row=>{
+    const id = row.dataset.id;
+    row.querySelector('.qty-plus').onclick = ()=>{ changeQty(id,1); };
+    row.querySelector('.qty-minus').onclick = ()=>{ changeQty(id,-1); };
+    row.querySelector('.ci-remove').onclick = ()=>{ cart = cart.filter(l=>l.id!==id); persistCart(); renderCart(); };
+  });
+}
+
+function changeQty(id, delta){
+  const line = cart.find(l=>l.id===id);
+  if(!line) return;
+  line.qty += delta;
+  if(line.qty<=0) cart = cart.filter(l=>l.id!==id);
+  persistCart();
+  renderCart();
+}
+
+async function persistCart(){
+  try{ await window.storage.set('younky:cart', JSON.stringify(cart), false); }
+  catch(e){ console.error('Could not save cart', e); }
+}
+
+async function loadCart(){
+  try{
+    const res = await window.storage.get('younky:cart', false);
+    cart = res ? JSON.parse(res.value) : [];
+  }catch(e){ cart = []; }
+  renderCart();
+}
+
+// Drawer open/close
+const drawer = document.getElementById('cartDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+function openDrawer(){ drawer.classList.add('open'); drawerOverlay.classList.add('show'); }
+function closeDrawer(){ drawer.classList.remove('open'); drawerOverlay.classList.remove('show'); }
+document.getElementById('cartToggle').onclick = openDrawer;
+document.getElementById('drawerClose').onclick = closeDrawer;
+drawerOverlay.onclick = closeDrawer;
+
+// Checkout modal
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+document.getElementById('checkoutBtn').onclick = ()=>{
+  if(cart.length===0) return;
+  document.getElementById('checkoutSummary').innerHTML =
+    cart.map(l=>`${l.qty} × ${l.name} — ₹${(l.qty*l.price).toLocaleString('en-IN')}`).join('<br>') +
+    `<br><strong>Total: ₹${cartTotal().toLocaleString('en-IN')}</strong>`;
+  document.getElementById('upiIdNote').textContent = `UPI ID: ${UPI_ID}`;
+  resetOtpState();
+  closeDrawer();
+  checkoutOverlay.style.display='flex';
+};
+
+function resetOtpState(){
+  phoneVerified = false;
+  confirmationResult = null;
+  document.getElementById('otpField').style.display = 'none';
+  document.getElementById('verifiedBadge').style.display = 'none';
+  document.getElementById('cOtp').value = '';
+  document.getElementById('otpHint').textContent = '';
+  document.getElementById('cPhone').disabled = false;
+  document.getElementById('sendOtpBtn').disabled = false;
+  document.getElementById('sendOtpBtn').textContent = 'Send OTP';
+  document.getElementById('gatedSection').classList.remove('unlocked');
+  document.getElementById('payUpiBtn').disabled = true;
+  document.getElementById('payRzpBtn').disabled = true;
+  document.getElementById('checkoutSend').disabled = true;
+  document.getElementById('gateHint').style.display = 'block';
+}
+
+function setupRecaptcha(){
+  if(recaptchaVerifier) return recaptchaVerifier;
+  recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    size: 'invisible'
+  });
+  return recaptchaVerifier;
+}
+
+document.getElementById('sendOtpBtn').onclick = ()=>{
+  const errBox = document.getElementById('checkoutErr');
+  const phone = document.getElementById('cPhone').value.trim();
+
+  if(!/^[6-9]\d{9}$/.test(phone)){
+    errBox.textContent = "Sahi 10-digit mobile number daalo.";
+    errBox.style.display = 'block';
+    return;
+  }
+  if(!firebaseReady){
+    errBox.textContent = "OTP service abhi set up nahi hua hai — Firebase config daalna baaki hai.";
+    errBox.style.display = 'block';
+    return;
+  }
+  errBox.style.display = 'none';
+
+  const verifier = setupRecaptcha();
+  const fullNumber = '+91' + phone;
+  document.getElementById('sendOtpBtn').disabled = true;
+  document.getElementById('sendOtpBtn').textContent = 'Sending...';
+
+  firebase.auth().signInWithPhoneNumber(fullNumber, verifier)
+    .then((result)=>{
+      confirmationResult = result;
+      document.getElementById('otpField').style.display = 'block';
+      document.getElementById('otpHint').textContent = `OTP bheja gaya ${fullNumber} pe.`;
+      document.getElementById('sendOtpBtn').textContent = 'Resend OTP';
+      document.getElementById('sendOtpBtn').disabled = false;
+    })
+    .catch((err)=>{
+      console.error(err);
+      errBox.textContent = "OTP bhejne me dikkat aayi. Number check karke dobara try karo.";
+      errBox.style.display = 'block';
+      document.getElementById('sendOtpBtn').disabled = false;
+      document.getElementById('sendOtpBtn').textContent = 'Send OTP';
+    });
+};
+
+document.getElementById('verifyOtpBtn').onclick = ()=>{
+  const errBox = document.getElementById('checkoutErr');
+  const code = document.getElementById('cOtp').value.trim();
+
+  if(!confirmationResult){
+    errBox.textContent = "Pehle OTP bhejo.";
+    errBox.style.display = 'block';
+    return;
+  }
+  if(!code){
+    errBox.textContent = "OTP daalo.";
+    errBox.style.display = 'block';
+    return;
+  }
+
+  confirmationResult.confirm(code)
+    .then(()=>{
+      errBox.style.display = 'none';
+      phoneVerified = true;
+      document.getElementById('verifiedBadge').style.display = 'block';
+      document.getElementById('otpField').style.display = 'none';
+      document.getElementById('cPhone').disabled = true;
+      document.getElementById('sendOtpBtn').disabled = true;
+      document.getElementById('gatedSection').classList.add('unlocked');
+      document.getElementById('payUpiBtn').disabled = false;
+      document.getElementById('payRzpBtn').disabled = false;
+      document.getElementById('checkoutSend').disabled = false;
+      document.getElementById('gateHint').style.display = 'none';
+    })
+    .catch((err)=>{
+      console.error(err);
+      errBox.textContent = "Galat OTP. Dobara try karo.";
+      errBox.style.display = 'block';
+    });
+};
+
+document.getElementById('payUpiBtn').onclick = ()=>{
+  const amount = cartTotal();
+  const note = encodeURIComponent('Order from Younky website');
+  const url = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_PAYEE_NAME)}&am=${amount}&cu=INR&tn=${note}`;
+  window.location.href = url;
+};
+
+document.getElementById('payRzpBtn').onclick = ()=>{
+  window.open(RAZORPAY_LINK, '_blank');
+};
+
+document.getElementById('checkoutCancel').onclick = ()=>{
+  checkoutOverlay.style.display='none';
+  openDrawer();
+};
+checkoutOverlay.addEventListener('click',(e)=>{ if(e.target===checkoutOverlay) checkoutOverlay.style.display='none'; });
+
+document.getElementById('checkoutSend').onclick = ()=>{
+  const name = document.getElementById('cName').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const address = document.getElementById('cAddress').value.trim();
+  const errBox = document.getElementById('checkoutErr');
+
+  if(!phoneVerified){
+    errBox.textContent = "Pehle mobile number verify karo.";
+    errBox.style.display='block';
+    return;
+  }
+  if(!name || !phone || !address){
+    errBox.textContent = "Name, phone aur address teeno bharo.";
+    errBox.style.display='block';
+    return;
+  }
+  errBox.style.display='none';
+
+  const lines = cart.map(l=>`- ${l.qty} × ${l.name} (₹${l.price.toLocaleString('en-IN')} each) = ₹${(l.qty*l.price).toLocaleString('en-IN')}`).join('\n');
+  const message =
+`New order from Younky website
+
+${lines}
+
+Total: ₹${cartTotal().toLocaleString('en-IN')}
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+(Payment done via UPI/Razorpay — screenshot attach kar denge if needed)`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+
+  cart = [];
+  persistCart();
+  renderCart();
+  checkoutOverlay.style.display='none';
+  document.getElementById('cName').value='';
+  document.getElementById('cPhone').value='';
+  document.getElementById('cAddress').value='';
+};
+
+renderTabs();
+loadProducts();
+loadCart();
+</script>
+
+</body>
+</html>

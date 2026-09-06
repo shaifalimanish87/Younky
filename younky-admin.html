@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%2314171F'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%23FF5A36' stroke-width='6'/%3E%3Ccircle cx='70' cy='30' r='18' fill='none' stroke='%23FF5A36' stroke-width='6'/%3E%3Cpath d='M48 28c2-4 6-4 8 0' fill='none' stroke='%23FF5A36' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>Younky — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --ink:#14171F;
+    --ink-soft:#2A2E3A;
+    --paper:#FAF8F4;
+    --coral:#FF5A36;
+    --coral-dark:#E64A28;
+    --teal:#1C7C74;
+    --line:#E4E0D8;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand,.btn{font-family:'Sora',sans-serif;}
+
+  header{
+    background:var(--ink);color:var(--paper);border-bottom:3px solid var(--coral);
+  }
+  .header-inner{
+    max-width:960px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-size:22px;font-weight:800;display:flex;align-items:baseline;gap:2px;}
+  .brand span{color:var(--coral);}
+  .tag{font-size:12px;color:rgba(250,248,244,0.6);font-family:'Inter',sans-serif;}
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* ===== Password gate ===== */
+  .gate{
+    min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;
+  }
+  .gate-box{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;
+    max-width:340px;width:100%;text-align:center;
+  }
+  .gate-box h2{margin:0 0 6px;font-size:19px;}
+  .gate-box p{margin:0 0 20px;font-size:13.5px;color:var(--ink-soft);}
+  .gate-box input{
+    width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid var(--line);
+    font-size:14px;margin-bottom:12px;font-family:'Inter',sans-serif;
+  }
+  .gate-err{color:var(--coral-dark);font-size:12.5px;margin:-4px 0 12px;display:none;}
+
+  .btn{
+    background:var(--coral);color:#fff;border:none;padding:11px 20px;border-radius:999px;
+    font-size:14px;font-weight:700;cursor:pointer;transition:background .15s;width:100%;
+  }
+  .btn:hover{background:var(--coral-dark);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);width:auto;padding:8px 16px;font-size:13px;}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+  .btn.small{width:auto;padding:9px 18px;font-size:13px;}
+
+  /* ===== Admin panel ===== */
+  .panel{display:none;}
+  .panel.show{display:block;}
+
+  .section-title{
+    font-size:18px;font-weight:700;margin:32px 0 4px;
+  }
+  .section-sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;}
+
+  .form-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:8px;
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12.5px;font-weight:700;margin-bottom:6px;}
+  .field input[type=text], .field input[type=number], .field select, .field textarea{
+    width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);
+    font-family:'Inter',sans-serif;font-size:14px;background:#fff;color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:56px;}
+  .upload-box{
+    border:1.5px dashed var(--line);border-radius:10px;padding:14px;text-align:center;cursor:pointer;
+    font-size:13px;color:var(--ink-soft);position:relative;
+  }
+  .upload-box img{max-height:110px;border-radius:6px;margin-top:8px;display:block;margin-left:auto;margin-right:auto;}
+  .upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .req{color:var(--coral-dark);font-weight:700;}
+  .opt{color:var(--ink-soft);font-weight:500;font-size:11.5px;}
+  .gallery-preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .gallery-preview .thumb-wrap{position:relative;width:64px;height:64px;}
+  .gallery-preview img{width:64px;height:64px;object-fit:cover;border-radius:8px;}
+  .gallery-preview .thumb-remove{
+    position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:999px;
+    background:var(--ink);color:#fff;border:none;font-size:11px;line-height:1;cursor:pointer;
+  }
+  .err{color:var(--coral-dark);font-size:12.5px;margin:-6px 0 12px;display:none;}
+  .ok{color:var(--teal);font-size:12.5px;margin:-6px 0 12px;display:none;}
+
+  /* ===== Product list ===== */
+  .list{display:flex;flex-direction:column;gap:10px;margin:18px 0 60px;}
+  .row-item{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .row-item img, .row-item .ph{
+    width:52px;height:52px;border-radius:8px;object-fit:cover;background:#F1EEE7;flex-shrink:0;
+  }
+  .row-item .ph{display:flex;align-items:center;justify-content:center;font-size:10px;color:#B9B3A5;}
+  .row-item .info{flex:1;min-width:0;}
+  .row-item .info .n{font-weight:700;font-size:14px;}
+  .row-item .info .m{font-size:12px;color:var(--ink-soft);}
+  .row-item .remove{
+    background:none;border:1.5px solid var(--line);color:var(--ink);border-radius:8px;
+    padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;flex-shrink:0;
+  }
+  .row-item .remove:hover{border-color:var(--coral-dark);color:var(--coral-dark);}
+
+  .empty-list{
+    text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:13.5px;
+    background:var(--card);border:1px dashed var(--line);border-radius:12px;
+  }
+
+  /* ===== Bulk upload ===== */
+  .bulk-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .file-btn{
+    position:relative;background:var(--ink);color:var(--paper);border:none;padding:10px 18px;
+    border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;overflow:hidden;
+  }
+  .file-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .link-btn{
+    background:none;border:none;color:var(--teal);font-size:13px;font-weight:700;cursor:pointer;
+    text-decoration:underline;padding:0;
+  }
+  .bulk-hint{font-size:12px;color:var(--ink-soft);margin:10px 0 0;line-height:1.5;}
+  .preview-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;}
+  .preview-table th, .preview-table td{
+    text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);
+  }
+  .preview-table th{font-size:11.5px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);}
+  .preview-table tr.invalid td{color:#B9B3A5;text-decoration:line-through;}
+  .preview-wrap{max-height:260px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;margin-top:12px;}
+  .bulk-summary{font-size:13px;margin-top:14px;font-weight:600;}
+  .bulk-actions{display:flex;gap:10px;margin-top:14px;}
+  .bulk-actions .btn{width:auto;}
+
+  @media(max-width:560px){ .grid2{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">YOUNKY</div>
+    <span class="tag">Admin</span>
+  </div>
+</header>
+
+<!-- Password gate -->
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <h2>Admin access</h2>
+    <p>Enter the admin password to manage the product catalog.</p>
+    <input type="password" id="pwInput" placeholder="Password">
+    <div class="gate-err" id="gateErr">Wrong password. Try again.</div>
+    <button class="btn" id="pwSubmit">Unlock</button>
+  </div>
+</div>
+
+<!-- Admin panel (shown after unlock) -->
+<div class="wrap panel" id="panel">
+  <h2 class="section-title">Bulk upload via Excel</h2>
+  <p class="section-sub">Upload an .xlsx or .csv file with multiple products at once.</p>
+
+  <div class="form-card">
+    <div class="bulk-row">
+      <label class="file-btn">
+        Choose Excel/CSV file
+        <input type="file" id="bulkFile" accept=".xlsx,.xls,.csv">
+      </label>
+      <button class="link-btn" id="downloadTemplate">Download sample template</button>
+    </div>
+    <p class="bulk-hint">
+      Columns expected: <strong>Name, Category, Price, Description, Main Image URL, Image URL 2, Image URL 3, Image URL 4, Image URL 5, Image URL 6</strong>.
+      Main Image URL zaroori hai; baaki 5 image columns optional hain. Category Men / Women / Kids / Unisex me se koi ek honi chahiye.
+    </p>
+    <div id="bulkErr" class="err"></div>
+    <div id="bulkPreviewBox" style="display:none;">
+      <div class="preview-wrap">
+        <table class="preview-table" id="previewTable"></table>
+      </div>
+      <p class="bulk-summary" id="bulkSummary"></p>
+      <div class="bulk-actions">
+        <button class="btn ghost" id="bulkCancel">Cancel</button>
+        <button class="btn small" id="bulkImportBtn">Import valid rows</button>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Add a product</h2>
+  <p class="section-sub">This appears immediately on the live Younky site.</p>
+
+  <div class="form-card">
+    <div id="formErr" class="err"></div>
+    <div id="formOk" class="ok">Product added to the shelf.</div>
+    <div class="field">
+      <label>Main photo <span class="req">*</span></label>
+      <div class="upload-box" id="uploadBox">
+        <span id="uploadLabel">Tap to upload the main image</span>
+        <input type="file" id="imgInput" accept="image/*">
+        <div id="preview"></div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Other photos <span class="opt">(optional, up to 5)</span></label>
+      <div class="upload-box" id="galleryBox">
+        <span id="galleryLabel">Tap to upload additional images</span>
+        <input type="file" id="galleryInput" accept="image/*" multiple>
+      </div>
+      <div class="gallery-preview" id="galleryPreview"></div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="fName" placeholder="e.g. Horizon Round Frame">
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select id="fCat">
+          <option>Men</option>
+          <option>Women</option>
+          <option>Kids</option>
+          <option>Unisex</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Price (₹)</label>
+      <input type="number" id="fPrice" placeholder="e.g. 1499">
+    </div>
+    <div class="field">
+      <label>Short description (optional)</label>
+      <textarea id="fDesc" placeholder="Lightweight acetate frame, all-day comfort..."></textarea>
+    </div>
+    <button class="btn small" id="saveBtn">Add to shelf</button>
+  </div>
+
+  <h2 class="section-title">Current products</h2>
+  <p class="section-sub" id="countLine">0 products live on the site</p>
+  <div class="list" id="list"></div>
+</div>
+
+<script>
+// TODO: change this to your own password
+const ADMIN_PASSWORD = "younky2026";
+
+let products = [];
+let pendingImage = "";
+let pendingGallery = [];
+let parsedRows = [];
+const VALID_CATS = ["Men","Women","Kids","Unisex"];
+
+// ---- Password gate ----
+document.getElementById('pwSubmit').onclick = tryUnlock;
+document.getElementById('pwInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') tryUnlock(); });
+
+function tryUnlock(){
+  const val = document.getElementById('pwInput').value;
+  if(val === ADMIN_PASSWORD){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('panel').classList.add('show');
+    loadProducts();
+  }else{
+    document.getElementById('gateErr').style.display = 'block';
+  }
+}
+
+// ---- Data ----
+async function persist(){
+  try{ await window.storage.set('younky:products', JSON.stringify(products), true); }
+  catch(e){ console.error('Could not save catalog', e); }
+}
+
+async function loadProducts(){
+  try{
+    const res = await window.storage.get('younky:products', true);
+    products = res ? JSON.parse(res.value) : [];
+  }catch(e){ products = []; }
+  renderList();
+}
+
+function renderList(){
+  const list = document.getElementById('list');
+  document.getElementById('countLine').textContent = `${products.length} product${products.length===1?'':'s'} live on the site`;
+
+  if(products.length===0){
+    list.innerHTML = `<div class="empty-list">No products yet — add your first one above.</div>`;
+    return;
+  }
+
+  const sorted = products.slice().sort((a,b)=>b.createdAt-a.createdAt);
+  list.innerHTML = sorted.map(p=>`
+    <div class="row-item" data-id="${p.id}">
+      ${p.image ? `<img src="${p.image}">` : `<div class="ph">No img</div>`}
+      <div class="info">
+        <div class="n">${p.name}</div>
+        <div class="m">${p.category} · ₹${Number(p.price).toLocaleString('en-IN')} · ${1 + ((p.gallery||[]).length)} photo${((p.gallery||[]).length)>0?'s':''}</div>
+      </div>
+      <button class="remove">Remove</button>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.row-item').forEach(row=>{
+    row.querySelector('.remove').onclick = async ()=>{
+      products = products.filter(p=>p.id !== row.dataset.id);
+      await persist();
+      renderList();
+    };
+  });
+}
+
+// ---- Image upload ----
+document.getElementById('imgInput').onchange = (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    pendingImage = reader.result;
+    document.getElementById('preview').innerHTML = `<img src="${pendingImage}">`;
+    document.getElementById('uploadLabel').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+};
+
+// ---- Gallery upload (up to 5 optional images) ----
+document.getElementById('galleryInput').onchange = (e)=>{
+  const files = Array.from(e.target.files || []);
+  const errBox = document.getElementById('formErr');
+  const room = 5 - pendingGallery.length;
+
+  if(files.length > room){
+    errBox.textContent = `Sirf 5 tak additional images allowed hain — ${room} aur add kar sakte ho.`;
+    errBox.style.display = 'block';
+  }
+
+  files.slice(0, room).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      pendingGallery.push(reader.result);
+      renderGalleryPreview();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  e.target.value = '';
+};
+
+function renderGalleryPreview(){
+  const box = document.getElementById('galleryPreview');
+  box.innerHTML = pendingGallery.map((img,i)=>`
+    <div class="thumb-wrap">
+      <img src="${img}">
+      <button class="thumb-remove" data-i="${i}">&times;</button>
+    </div>
+  `).join('');
+  box.querySelectorAll('.thumb-remove').forEach(btn=>{
+    btn.onclick = ()=>{
+      pendingGallery.splice(Number(btn.dataset.i), 1);
+      renderGalleryPreview();
+    };
+  });
+  document.getElementById('galleryLabel').textContent =
+    pendingGallery.length >= 5 ? 'Limit reached (5/5)' : 'Tap to upload additional images';
+}
+
+// ---- Add product ----
+document.getElementById('saveBtn').onclick = async ()=>{
+  const name = document.getElementById('fName').value.trim();
+  const category = document.getElementById('fCat').value;
+  const price = document.getElementById('fPrice').value;
+  const desc = document.getElementById('fDesc').value.trim();
+  const errBox = document.getElementById('formErr');
+  const okBox = document.getElementById('formOk');
+  okBox.style.display = 'none';
+
+  if(!name || !price){
+    errBox.textContent = "Name and price dono chahiye.";
+    errBox.style.display = 'block';
+    return;
+  }
+  if(!pendingImage){
+    errBox.textContent = "Main photo daalna zaroori hai.";
+    errBox.style.display = 'block';
+    return;
+  }
+  errBox.style.display = 'none';
+
+  products.push({
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+    name, category, price: Number(price), desc,
+    image: pendingImage, gallery: pendingGallery.slice(), createdAt: Date.now()
+  });
+
+  await persist();
+  renderList();
+
+  // reset form
+  document.getElementById('fName').value = '';
+  document.getElementById('fPrice').value = '';
+  document.getElementById('fDesc').value = '';
+  document.getElementById('imgInput').value = '';
+  document.getElementById('preview').innerHTML = '';
+  document.getElementById('uploadLabel').style.display = 'inline';
+  document.getElementById('galleryPreview').innerHTML = '';
+  document.getElementById('galleryLabel').textContent = 'Tap to upload additional images';
+  pendingImage = '';
+  pendingGallery = [];
+  okBox.style.display = 'block';
+  setTimeout(()=>{ okBox.style.display = 'none'; }, 2500);
+};
+
+// ---- Bulk upload via Excel/CSV ----
+document.getElementById('downloadTemplate').onclick = ()=>{
+  const sample = [
+    { Name: "Horizon Round Frame", Category: "Men", Price: 1499, Description: "Lightweight acetate frame",
+      "Main Image URL": "", "Image URL 2": "", "Image URL 3": "", "Image URL 4": "", "Image URL 5": "", "Image URL 6": "" },
+    { Name: "Aria Cat-Eye", Category: "Women", Price: 1799, Description: "Bold cat-eye silhouette",
+      "Main Image URL": "", "Image URL 2": "", "Image URL 3": "", "Image URL 4": "", "Image URL 5": "", "Image URL 6": "" }
+  ];
+  const ws = XLSX.utils.json_to_sheet(sample);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Products");
+  XLSX.writeFile(wb, "younky-products-template.xlsx");
+};
+
+document.getElementById('bulkFile').onchange = (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const bulkErr = document.getElementById('bulkErr');
+  bulkErr.style.display = 'none';
+
+  const reader = new FileReader();
+  reader.onload = (evt)=>{
+    try{
+      const wb = XLSX.read(evt.target.result, { type: 'array' });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+      processRows(rows);
+    }catch(err){
+      console.error(err);
+      bulkErr.textContent = "File padhne me dikkat aayi. .xlsx ya .csv file try karo.";
+      bulkErr.style.display = 'block';
+    }
+  };
+  reader.readAsArrayBuffer(file);
+};
+
+function getField(row, ...keys){
+  for(const k of Object.keys(row)){
+    if(keys.some(want => k.trim().toLowerCase() === want.toLowerCase())) return row[k];
+  }
+  return "";
+}
+
+function processRows(rows){
+  parsedRows = rows.map(row=>{
+    const name = String(getField(row,'Name','Product Name') || '').trim();
+    const catRaw = String(getField(row,'Category') || '').trim();
+    const category = VALID_CATS.find(c => c.toLowerCase() === catRaw.toLowerCase()) || '';
+    const priceRaw = getField(row,'Price');
+    const price = Number(priceRaw);
+    const desc = String(getField(row,'Description') || '').trim();
+    const image = String(getField(row,'Main Image URL','Image URL','Image') || '').trim();
+    const gallery = [2,3,4,5,6]
+      .map(n => String(getField(row, `Image URL ${n}`) || '').trim())
+      .filter(Boolean)
+      .slice(0,5);
+
+    const errors = [];
+    if(!name) errors.push('name missing');
+    if(!category) errors.push('invalid category');
+    if(!priceRaw || isNaN(price) || price<=0) errors.push('invalid price');
+    if(!image) errors.push('main image missing');
+
+    return { name, category, price, desc, image, gallery, valid: errors.length===0, errors };
+  }).filter(r => r.name || r.category || r.price); // skip fully blank rows
+
+  renderPreview();
+}
+
+function renderPreview(){
+  const box = document.getElementById('bulkPreviewBox');
+  const table = document.getElementById('previewTable');
+  const summary = document.getElementById('bulkSummary');
+
+  if(parsedRows.length===0){
+    box.style.display = 'none';
+    document.getElementById('bulkErr').textContent = "File me koi valid row nahi mili.";
+    document.getElementById('bulkErr').style.display = 'block';
+    return;
+  }
+
+  const validCount = parsedRows.filter(r=>r.valid).length;
+  const invalidCount = parsedRows.length - validCount;
+
+  table.innerHTML = `
+    <tr><th>Name</th><th>Category</th><th>Price</th><th>Images</th><th>Status</th></tr>
+    ${parsedRows.map(r=>`
+      <tr class="${r.valid ? '' : 'invalid'}">
+        <td>${r.name || '—'}</td>
+        <td>${r.category || '—'}</td>
+        <td>${r.price ? '₹'+Number(r.price).toLocaleString('en-IN') : '—'}</td>
+        <td>${r.image ? 1 + r.gallery.length : 0}</td>
+        <td>${r.valid ? 'OK' : r.errors.join(', ')}</td>
+      </tr>
+    `).join('')}
+  `;
+
+  summary.textContent = `${validCount} valid row${validCount===1?'':'s'} ready to import` +
+    (invalidCount>0 ? `, ${invalidCount} skipped (errors)` : '');
+  box.style.display = 'block';
+}
+
+document.getElementById('bulkCancel').onclick = ()=>{
+  parsedRows = [];
+  document.getElementById('bulkPreviewBox').style.display = 'none';
+  document.getElementById('bulkFile').value = '';
+  document.getElementById('bulkErr').style.display = 'none';
+};
+
+document.getElementById('bulkImportBtn').onclick = async ()=>{
+  const validRows = parsedRows.filter(r=>r.valid);
+  if(validRows.length===0) return;
+
+  validRows.forEach(r=>{
+    products.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+      name: r.name, category: r.category, price: r.price, desc: r.desc,
+      image: r.image, gallery: r.gallery, createdAt: Date.now()
+    });
+  });
+
+  await persist();
+  renderList();
+
+  document.getElementById('bulkSummary').textContent = `${validRows.length} product${validRows.length===1?'':'s'} imported successfully.`;
+  setTimeout(()=>{
+    parsedRows = [];
+    document.getElementById('bulkPreviewBox').style.display = 'none';
+    document.getElementById('bulkFile').value = '';
+  }, 1800);
+};
+</script>
+
+</body>
+</html>
