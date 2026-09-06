@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#14171F; --ink-soft:#2A2E3A; --paper:#FAF8F4; --coral:#FF5A36; --teal:#1C7C74; --line:#E4E0D8; --card:#FFFFFF; }
+  :root{ --ink:#14171F; --ink-soft:#2A2E3A; --paper:#FAF8F4; --coral:#FF5A36; --coral-dark:#E64A28; --teal:#1C7C74; --line:#E4E0D8; --card:#FFFFFF; }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
@@ -30,6 +30,9 @@
   p, li{font-size:14px;line-height:1.7;color:var(--ink-soft);}
   ul{padding-left:20px;}
   footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size:12px;color:var(--ink-soft);margin-top:30px;}
+  .footer-nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:10px;}
+  .footer-nav a{font-size:12.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;}
+  .footer-nav a:hover{color:var(--coral-dark);}
 </style>
 </head>
 <body>
@@ -73,7 +76,15 @@
   <p>Questions about this disclaimer can be sent via our <a href="contact.html">Contact page</a>.</p>
 </div>
 
-<footer>© <span id="year"></span> Younky Eyewear. All rights reserved.</footer>
+<footer>
+  <div class="footer-nav">
+    <a href="younky-eyewear.html">Home</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+  © <span id="year"></span> Younky Eyewear. All rights reserved.
+</footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
